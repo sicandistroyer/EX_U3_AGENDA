@@ -33,6 +33,7 @@ app.register_blueprint(contacto_bp, url_prefix='/contactos')
 @app.route('/')
 def index():
     #return 'Hola mundo'
-    return render_template('index.html')
+    contactos = Contacto.query.all()
+    return render_template('index.html', contactos=contactos)
 
 
